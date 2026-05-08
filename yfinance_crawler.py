@@ -5,8 +5,9 @@ import pandas as pd
 # 1.AAPL:apple 2.NVDA:NVIDIA 3.JPM:摩根大通(金融) 4.XOM:ExxonMobil(傳統油氣) 5.DIS:迪士尼
 stocks = {"AAPL", "NVDA", "JPM", "XOM", "DIS"}
 count = 1
-start_time = "2025-01-01"
-end_time = "2025-12-31"
+start_time = "2026-01-01"
+end_time = "2026-02-28"
+save_path = "dataset/valid"
 
 for stock in stocks:
     print(f"{count}.{stock}")
@@ -21,8 +22,8 @@ for stock in stocks:
     data_wo_prepost.columns = data_wo_prepost.columns.droplevel('Ticker')
 
     # 存成csv，一般是包含盤前盤後資料、wo_prepost 是沒有盤前盤後資料
-    data.to_csv(f"dataset/{stock}.csv", float_format="%.2f")
-    data_wo_prepost.to_csv(f"dataset/{stock}_wo_prepost.csv", float_format="%.2f")
+    data.to_csv(f"{save_path}/{stock}.csv", float_format="%.2f")
+    data_wo_prepost.to_csv(f"{save_path}/{stock}_wo_prepost.csv", float_format="%.2f")
 
 #print(data)
 

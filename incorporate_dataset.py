@@ -1,20 +1,22 @@
 import pandas as pd
 from functools import reduce
 
+save_path = "dataset/valid"
+
 # 檔案列表
 files = [
-    "dataset/NVDA.csv",
-    "dataset/AAPL.csv",
-    "dataset/JPM.csv",
-    "dataset/DIS.csv",
-    "dataset/XOM.csv"
+    f"{save_path}/NVDA.csv",
+    f"{save_path}/AAPL.csv",
+    f"{save_path}/JPM.csv",
+    f"{save_path}/DIS.csv",
+    f"{save_path}/XOM.csv"
 ]
 files_wo_prepost = [
-    "dataset/NVDA_wo_prepost.csv",
-    "dataset/AAPL_wo_prepost.csv",
-    "dataset/JPM_wo_prepost.csv",
-    "dataset/DIS_wo_prepost.csv",
-    "dataset/XOM_wo_prepost.csv"
+    f"{save_path}/NVDA_wo_prepost.csv",
+    f"{save_path}/AAPL_wo_prepost.csv",
+    f"{save_path}/JPM_wo_prepost.csv",
+    f"{save_path}/DIS_wo_prepost.csv",
+    f"{save_path}/XOM_wo_prepost.csv"
 ]
 
 dfs = []
@@ -72,7 +74,7 @@ total_df = total_df.sort_values("Datetime")
 total_df_wo_prepost = total_df_wo_prepost.sort_values("Datetime")
 
 # 存檔
-total_df.to_csv("dataset/total_stock.csv", index=False)
-total_df_wo_prepost.to_csv("dataset/total_stock_wo_prepost.csv", index=False)
+total_df.to_csv(f"{save_path}/total_stock.csv", index=False)
+total_df_wo_prepost.to_csv(f"{save_path}/total_stock_wo_prepost.csv", index=False)
 
-print("完成:dataset/total_stock.csv & total_stock_wo_prepost.csv")
+print(f"完成:{save_path}/total_stock.csv & total_stock_wo_prepost.csv")
